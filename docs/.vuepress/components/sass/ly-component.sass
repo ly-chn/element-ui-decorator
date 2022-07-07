@@ -1,0 +1,41 @@
+.ly-table
+  .ly-table-action
+    margin-left: 4px
+    margin-right: 4px
+
+.ly-form-button
+  margin-bottom: 4px
+  margin-top: 4px
+
+.ly-form-search
+  .el-form-item
+    margin-bottom: 6px
+
+// 行内编辑
+.ly-form
+  // 编辑状态, 显示表单
+  .ly-table-row-editing td
+    .ly-form-item
+      display: unset
+      *
+        margin: 0 !important
+    .ly-form-item-text-render
+      display: none
+
+  // 非编辑状态, 显示文本
+  .ly-table-row-off-editing td
+    .ly-form-item
+      display: none
+    .ly-form-item-text-render
+      display: unset
+
+// 表单样式撑开
+.ly-form
+  .el-select
+    width: 100%
+  .el-date-editor.el-input, .el-date-editor.el-input__inner
+    width: 100%
+
+*
+  .hidden
+    display: none

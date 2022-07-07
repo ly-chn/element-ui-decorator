@@ -2,12 +2,17 @@
   "license": "MIT",
   "scripts": {
     "docs:dev": "vuepress dev docs --no-cache",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "web-types": "vue-docgen-web-types --configFile ./web-types.config.js --watch"
   },
+  "web-types": "./web-types.json",
   "devDependencies": {
+    "node-sass": "^7.0.1",
+    "sass-loader": "^13.0.2",
     "vuepress": "^1.9.7"
   },
   "dependencies": {
-    "element-ui": "^2.15.9"
+    "element-ui": "^2.15.9",
+    "vue-docgen-web-types": "^0.1.7"
   }
 }
