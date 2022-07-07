@@ -1,12 +1,16 @@
 /**
- * 简易的vue解析插件, 使用@@@符号包裹Vue元素, 将会同时渲染和显示源码, 看起来十分的舒服
+ * 简易的vue解析插件, 使用vue代码块, 将会同时渲染和显示源码(如果代码的第一行不是`no-render`的话)
  */
-function mdItCodeRender(md, options) {
-    md.core.ruler.before('normalize', 'code-render', (state, line) => {
-        state.src = state.src.replace(/[`~@]{3}([\s\S]+?)[`~@]{3}/mg, '$1\n```vue\n$1\n```')
-        console.log(state.src, '\n'.repeat(10))
-        console.log(state.src, '\n'.repeat(10))
+function mdItCodeRender(md) {
+  md.core.ruler.before('normalize', 'code-render', (state) => {
+    state.src = state.src.replace(/([`~@]{3}vue\r\n)(no-render)?([\s\S]+?)([`~@]{3})/mg, (match, p1, p2, p3, p4) => {
+      // 不渲染vue, 只渲染代码块
+      if (p2) {
+        return p1 + p3 + p4
+      }
+      return p3 + '\n' + p1 + p3 + p4
     })
+  })
 }
 
 module.exports = mdItCodeRender
