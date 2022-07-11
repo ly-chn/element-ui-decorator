@@ -1,6 +1,6 @@
 # 表单组件
 
-在后台管理项目中, 几乎所有的表单项都带有以下共性: 
+在后台管理项目中, 几乎所有的表单项都带有以下共性:
 
 1. 带有label
 2. 与Form组件组合使用
@@ -9,23 +9,45 @@
 
 ## Input 输入框
 
-下面是一个简单的input输入框示例
+### 基本用法
 
 ```vue
-<p class="demo" :class="$style.example"></p>
 
-<style module>
-.example {
-  color: #41b883;
-}
-</style>
+<template>
+  <ly-form>
+    <ly-input label="你好" v-model="value" />
+  </ly-form>
+</template>
 
 <script>
 export default {
-  props: ['slot-key'],
-  mounted () {
-    document.querySelector(`.${this.$style.example}`)
-      .textContent = '这个块是被内联的脚本渲染的，样式也采用了内联样式。'
+  data() {
+    return {
+      value: undefined
+    }
+  }
+}
+</script>
+```
+
+## Radio 单选框
+
+### 基本用法
+
+```vue
+
+<template>
+  <ly-form>
+    <ly-radio label="你好" v-model="value" />
+  </ly-form>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      value: undefined
+    }
   }
 }
 </script>

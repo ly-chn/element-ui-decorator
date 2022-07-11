@@ -11,7 +11,7 @@ export default defineConfig({
     return config
   },
   markdown: {
-    lineNumbers: true,
+    lineNumbers: false,
     extendMarkdown: (md) => {
       md.use(require('./plugin/md-it-code-render'))
     }
