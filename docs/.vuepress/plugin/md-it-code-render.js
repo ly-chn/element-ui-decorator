@@ -1,4 +1,5 @@
 const enter = '\r\n'
+const hash = require('hash-sum')
 
 /**
  * 简易的vue解析插件, 使用vue代码块, 将会同时渲染和显示源码(如果代码的第一行不是`no-render`的话)
@@ -11,6 +12,7 @@ function mdItCodeRender(md) {
         if (noRender) {
           return codeStart.trim() + enter + code + codeEnd
         }
+        const componentName = hash(code)
         return '<demo-block>\n' +
           '<template slot="default">\n' +
           code +

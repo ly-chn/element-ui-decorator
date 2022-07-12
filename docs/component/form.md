@@ -7,6 +7,34 @@
 3. 同一个Form中Label等宽
 4. 所有组件均为受控组件
 
+## 表单示例
+
+一个简单的表单示例
+
+```vue
+
+<template>
+  <ly-form only>
+    <ly-input label="你好" v-model="value" />
+    <!--<ly-input label="商品名称" v-model="form.name" :rules="[$rules.must]" />
+    <ly-select label="所述分类" v-model="form.type" :rules="[$rules.must]" />
+    <ly-upload relation-id="1" label="商品图片" v-model="form.images"/>-->
+  </ly-form>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      form: {
+        
+      }
+    }
+  }
+}
+</script>
+```
+
 ## Input 输入框
 
 ### 基本用法

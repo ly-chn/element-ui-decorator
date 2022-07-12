@@ -1,7 +1,7 @@
 <template>
   <ly-form-item>
     <el-radio-group :value="value" @change="setCurrentValue">
-      <el-radio-button v-for="item in options"
+      <el-radio-button v-for="item in usefulOptions"
                        :key="item.value"
                        :label="item.value"
                        :value="item.value">
@@ -13,18 +13,10 @@
 
 <script>
 
-import {FormItemMixin} from '../mixins/form-item-mixin'
+import {DictOptionsMixin, FormItemMixin} from '../mixins/form-item-mixin'
 
 export default {
   name: 'LyRadio',
-  mixins: [FormItemMixin],
-  props: {
-    options: {
-      type: Array,
-      default() {
-        return []
-      }
-    }
-  }
+  mixins: [FormItemMixin, DictOptionsMixin]
 }
 </script>

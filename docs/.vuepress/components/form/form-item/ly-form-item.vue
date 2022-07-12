@@ -4,20 +4,24 @@
     <div class="ly-form-item-text-render hidden">
       {{ text }}
     </div>
-    <el-form-item ref="formItem"
+    <el-form-item-extends ref="formItem"
                   class="ly-form-item"
+                  :value="formItemInstance.value"
                   :label-width="usefulLabelWidth"
                   :label="usefulLabel"
                   :prop="prop || formItemInstance.prop"
                   :rules="usefulRules">
       <slot />
-    </el-form-item>
+    </el-form-item-extends>
   </el-col>
 </template>
 
 <script>
+import ElFormItemExtends from './form-item-extends/el-form-item-extends'
+
 export default {
   name: 'LyFormItem',
+  components: {ElFormItemExtends},
   props: {
     /**
      * 标签文本
@@ -65,11 +69,7 @@ export default {
         return undefined
       }
       const rules = this.rules || this.formItemInstance.rules || []
-      const res = rules.map(it => typeof it === 'function' ? it() : it)
-      if (res && res.length && !this.prop && !this.formItemInstance.prop) {
-        this.$nextTick(() => console.error('provide prop for rules, please', this.label, this.$refs.formItem.$el))
-      }
-      return res
+      return rules.map(it => typeof it === 'function' ? it() : it)
     },
     text() {
       return this.formItemInstance.value

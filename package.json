@@ -5,6 +5,7 @@
     "docs:build": "vuepress build docs",
     "web-types": "vue-docgen-web-types --configFile ./web-types.config.js --watch"
   },
+  "typings": "types/index.d.ts",
   "web-types": "./web-types.json",
   "devDependencies": {
     "node-sass": "^7.0.1",
@@ -13,6 +14,7 @@
   },
   "dependencies": {
     "element-ui": "^2.15.9",
+    "hash-sum": "^2.0.0",
     "vue-docgen-web-types": "^0.1.7"
   }
 }

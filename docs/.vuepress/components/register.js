@@ -1,3 +1,5 @@
+import {LyUtil} from './form/util/ly-util'
+
 export default Vue=>{
   const requireComponent = require.context('.', true, /.vue$/);
   requireComponent.keys().forEach(fileName => {
@@ -9,4 +11,5 @@ export default Vue=>{
       componentConfig.default || componentConfig
     )
   })
+  Vue.use(LyUtil)
 }
