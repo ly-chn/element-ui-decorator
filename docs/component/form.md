@@ -11,6 +11,8 @@
 
 一个简单的表单示例
 
+::: demo
+
 ```vue
 
 <template>
@@ -26,14 +28,14 @@
 export default {
   data() {
     return {
-      form: {
-        
-      }
+      form: {}
     }
   }
 }
 </script>
 ```
+
+:::
 
 ## Input 输入框
 

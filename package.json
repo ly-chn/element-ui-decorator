@@ -15,6 +15,7 @@
   "dependencies": {
     "element-ui": "^2.15.9",
     "hash-sum": "^2.0.0",
-    "vue-docgen-web-types": "^0.1.7"
+    "vue-docgen-web-types": "^0.1.7",
+    "vuepress-plugin-editable-demo-block": "^0.1.2"
   }
 }

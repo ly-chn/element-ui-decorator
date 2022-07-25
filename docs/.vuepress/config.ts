@@ -1,5 +1,5 @@
 import {defineConfig} from 'vuepress/config'
-
+import DemoBlock from 'vuepress-plugin-editable-demo-block'
 export default defineConfig({
   title: 'Element UI Decorator',
   description: 'Element UI 二次封装指南(Vue2)',
@@ -10,12 +10,6 @@ export default defineConfig({
     }
     return config
   },
-  markdown: {
-    lineNumbers: false,
-    extendMarkdown: (md) => {
-      md.use(require('./plugin/md-it-code-render'))
-    }
-  },
   themeConfig: {
     repo: 'ly-chn/element-ui-decorator',
     editLinks: true,
@@ -23,13 +17,13 @@ export default defineConfig({
     docsDir: 'docs/',
     smoothScroll: true,
     nav: [
-      { text: '指南', link: '/guide/' },
-      { text: '组件', link: '/component/' },
+      {text: '指南', link: '/guide/'},
+      {text: '组件', link: '/component/'},
     ],
     sidebar: {
-      '/guide/': [''],
+      '/guide/': ['', 'standard', 'q&a'],
       '/component/': ['', 'form']
     }
-  }
-
+  },
+  plugins: [DemoBlock]
 })
